@@ -1,4 +1,5 @@
-### Hi there 👋
+### 하이루 방가방가 👋
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FZunaTtang)](https://hits.seeyoufarm.com)
 
 <!--
 **ZunaTtang/ZunaTtang** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
@@ -14,3 +15,6 @@ Here are some ideas to get you started:
 - 😄 Pronouns: ...
 - ⚡ Fun fact: ...
 -->
+
+[![github stats](https://github-readme-stats.vercel.app/api?username=ZunaTtang&show_icons=true&hide_border=true)](https://github.com/ZunaTtang)
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=ZunaTtang&layout=compact)](https://github.com/shinplest)
