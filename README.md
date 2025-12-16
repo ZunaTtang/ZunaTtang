@@ -54,7 +54,6 @@ This GitHub reflects **what I am actively building and operating**, not sample c
 
 ## 🛠 Tech I Use Here
 
-### EN
 - JavaScript / TypeScript
 - Google Apps Script
 - React + Vite + Tailwind CSS
@@ -62,15 +61,6 @@ This GitHub reflects **what I am actively building and operating**, not sample c
 - Google Cloud Platform
 - Slack Bots & triggers
 - AI tools (prompt-based usage)
-
-### KR
-- JavaScript / TypeScript
-- Google Apps Script
-- React + Vite + Tailwind CSS
-- REST API / Webhook
-- Google Cloud Platform
-- Slack 봇 및 트리거
-- AI 도구 (프롬프트 기반 활용)
 
 ---
 
