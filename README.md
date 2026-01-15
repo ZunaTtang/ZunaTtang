@@ -1,135 +1,95 @@
-# 👋 Automation & AI Workflow Builder  
-*(Vibe Coding Developer)*
-
-## EN
-
-I build **practical automation and product MVPs** by combining APIs, scripts, AI tools, and lightweight front-end systems.
-
-I focus on **vibe coding**:
-- shipping fast,
-- validating ideas through working software,
-- and refining systems based on real usage rather than theory.
-
-This GitHub reflects **what I am actively building and operating**, not sample code.
+# 👋 Automation & Operational Systems Builder  
+**System PM / Vibe Coding Developer**
 
 ---
 
-## KR
+## 🌍 About Me
 
-저는 API, 스크립트, AI 도구, 경량 프론트엔드를 결합해  
-**실제로 작동하는 자동화 시스템과 MVP를 빠르게 만드는 바이브 코딩 개발자**입니다.
+### 🇺🇸 EN
+I build and operate **practical automation and operational systems** that turn APIs, scripts, and lightweight frontends into **reliable dashboards, alerts, and decision-making signals**.
 
-이론적인 완성도보다,
-- 빠른 구현
-- 실제 사용성 검증
-- 운영하면서 개선
+My work sits at the boundary between **business, product, and engineering** — closing gaps where problems are too technical for PMs and too contextual for engineers.
 
-에 집중합니다.
+I focus on **vibe coding**:
+- shipping fast  
+- validating ideas through working systems  
+- refining them based on real operational usage, not theory  
 
-이 GitHub는 **현재 진행 중이거나 실제로 운영하는 프로젝트**를 중심으로 구성되어 있습니다.
+This GitHub reflects **what I actually build and run in production**, not sample or tutorial code.
+
+---
+
+### 🇰🇷 KR
+비즈니스와 엔지니어링의 경계에서  
+**실제로 운영되는 자동화·시스템을 설계하고 소유하는 시스템 중심 PM**입니다.
+
+API, 스크립트, 경량 프론트엔드를 결합해  
+대시보드·알림·운영 지표로 이어지는 **신뢰 가능한 의사결정 시스템**을 만듭니다.
+
+저는 **바이브 코딩**에 집중합니다:
+- 빠르게 만들고  
+- 실제 사용으로 검증하며  
+- 운영하면서 개선합니다  
+
+이 GitHub는 예제 코드가 아니라  
+**현재 직접 만들고, 돌리고, 책임지는 시스템**을 기록합니다.
 
 ---
 
 ## 🧠 Core Capabilities
 
 ### EN
-- API integration & automation
-- Script-based workflows (JavaScript / GAS)
-- Webhook-driven systems
-- Lightweight data pipelines (Sheets-based)
-- AI-assisted workflow design
-- Rapid MVP development
-- Shipping-first development mindset
+- Operational automation & monitoring  
+- API integration & script-based workflows (JavaScript / GAS)  
+- Webhook-driven systems  
+- Lightweight data pipelines (Sheets-based)  
+- Data validation & signal design  
+- Rapid MVP → production iteration  
+- Shipping-first, operation-aware mindset  
 
 ### KR
-- API 연동 및 자동화
-- 스크립트 기반 워크플로우 (JavaScript / GAS)
-- Webhook 중심 시스템 구성
-- 경량 데이터 파이프라인 (Sheets 기반)
-- AI 보조 워크플로우 설계
-- 빠른 MVP 제작
-- 결과 중심 개발 방식
-
----
-
-## 🛠 Tech I Use Here
-
-- JavaScript / TypeScript
-- Google Apps Script
-- React + Vite + Tailwind CSS
-- REST APIs / Webhooks
-- Google Cloud Platform
-- Slack Bots & triggers
-- AI tools (prompt-based usage)
-
----
-
-## 🚧 Ongoing Projects
-
-### 🎬 Short-form Subtitle Sync Automation MVP
-
-**EN**
-- Building a Web MVP that dramatically reduces subtitle sync time for short-form video editors
-- Tap-based UX to mark timestamps during playback
-- Automatic timing correction (smoothing, scaling, length-based allocation)
-- Export formats: SRT, LRC, CapCut CSV
-- Frontend-first MVP with minimal dependencies
-
-**KR**
-- 숏폼 영상 편집자의 자막 싱크 작업 시간을 크게 줄이는 Web MVP 개발 중
-- 재생 중 탭으로 타임스탬프를 찍는 Tap 기반 UX
-- 자동 보정 알고리즘 (smoothing, scaling, 문장 길이 기반 분배)
-- SRT / LRC / CapCut CSV export 지원
-- 외부 라이브러리를 최소화한 프론트엔드 중심 MVP
+- 운영 자동화 및 모니터링 시스템 설계  
+- API 연동 및 스크립트 기반 워크플로우 (JavaScript / GAS)  
+- Webhook 중심 시스템 구성  
+- 경량 데이터 파이프라인 (Sheets 기반)  
+- 데이터 검증 및 운영 신호 설계  
+- MVP를 실제 운영 시스템으로 전환  
+- 구현보다 운영을 먼저 보는 개발 관점  
 
 ---
 
 ## 🔍 What You’ll Find in My Repos
 
 ### EN
-- Automation scripts for operations
-- API-driven data collection
-- Rapid MVP prototypes
-- Small systems designed to run unattended
-- Experimental but production-oriented code
+- Automation systems that run unattended  
+- API-driven monitoring and data collection  
+- MVPs built to validate real business problems  
+- Small, reliable systems designed to reduce operational risk  
 
 ### KR
-- 운영 자동화를 위한 스크립트
-- API 기반 데이터 수집
-- 빠르게 만든 MVP 프로토타입
-- 사람 개입 없이 돌아가는 소형 시스템
-- 실험적이지만 실제 사용을 전제로 한 코드
+- 사람 개입 없이 돌아가는 자동화 시스템  
+- API 기반 모니터링 및 데이터 수집  
+- 실제 비즈니스 문제 검증용 MVP  
+- 운영 리스크를 줄이기 위한 소형 시스템  
 
 ---
 
-## ⚙️ How I Build
+## 🛠 Tech I Use
 
-### EN
-- Outcome first, code second
-- Ship early, refine later
-- Simple systems over heavy infrastructure
-- Automation before scale
-
-### KR
-- 결과 우선, 코드 구현은 그 다음
-- 빠르게 만들고 운영하면서 개선
-- 무거운 인프라보다 단순한 시스템
-- 확장보다 자동화를 먼저
+- JavaScript / TypeScript  
+- Google Apps Script  
+- React + Vite + Tailwind CSS  
+- REST APIs / Webhooks  
+- Google Cloud Platform  
+- Slack Bots & triggers  
+- AI tools (prompt-based usage)  
 
 ---
 
-## 📌 Notes
+## 📌 One-Line Summary
 
-### EN
-This GitHub is a place for:
-- vibe coding
-- automation experiments
-- MVPs that turn into real tools
+> **EN**  
+> *I build small operational systems that prevent business problems from becoming engineering problems.*
 
-### KR
-이 GitHub는
-- 바이브 코딩
-- 자동화 실험
-- 실제 도구로 발전하는 MVP
-
-를 기록하는 공간입니다.
+> **KR**  
+> *비즈니스 문제를 엔지니어링 문제로 키우지 않기 위해 시스템을 만듭니다.*
