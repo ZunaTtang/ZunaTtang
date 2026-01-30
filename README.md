@@ -6,7 +6,8 @@
 ## 🌍 About Me
 
 ### 🇺🇸 EN
-I build and operate **practical automation and operational systems** that turn APIs, scripts, and lightweight frontends into **reliable dashboards, alerts, and decision-making signals**.
+At the intersection of business and engineering, 
+I build and operate growth workflows across marketing, CRM, and community, while designing and owning automation systems that run in production as a systems-driven PM.
 
 My work sits at the boundary between **business, product, and engineering** — closing gaps where problems are too technical for PMs and too contextual for engineers.
 
@@ -20,8 +21,8 @@ This GitHub reflects **what I actually build and run in production**, not sample
 ---
 
 ### 🇰🇷 KR
-비즈니스와 엔지니어링의 경계에서  
-**실제로 운영되는 자동화·시스템을 설계하고 소유하는 시스템 중심 PM**입니다.
+비즈니스와 엔지니어링의 경계에서 
+마케팅·CRM·커뮤니티를 연결한 성장 워크플로우를 구축·운영하며, 실제로 돌아가는 자동화 시스템을 설계하고 소유하는 시스템 중심 PM입니다.
 
 API, 스크립트, 경량 프론트엔드를 결합해  
 대시보드·알림·운영 지표로 이어지는 **신뢰 가능한 의사결정 시스템**을 만듭니다.
