@@ -1,96 +1,189 @@
-# 👋 Automation & Operational Systems Builder  
-**System PM / Vibe Coding Developer**
+# Hi, I'm Zuna
+
+### AI Automation Builder for Product & Growth Ops
+
+I build lightweight AI-powered systems that turn messy operational workflows into repeatable, measurable, and scalable processes.
+
+My work sits between **product, growth, operations, and engineering**. I focus on the space where business teams need working systems faster than traditional product development cycles can usually support.
+
+I like building tools that reduce manual work, improve operational visibility, and help teams make better decisions from real user signals.
 
 ---
 
-## 🌍 About Me
+## What I Build
 
-### 🇺🇸 EN
-At the intersection of business and engineering, 
-I build and operate growth workflows across marketing, CRM, and community, while designing and owning automation systems that run in production as a systems-driven PM.
+- AI-assisted workflow automation
+- Product and growth operations tooling
+- CS / CRM / community workflow automation
+- QA and monitoring systems
+- Crypto market briefing and data pipelines
+- Slack / Telegram / Intercom automation
+- Lightweight internal tools and MVPs
+- Webhook and API-based integrations
 
-My work sits at the boundary between **business, product, and engineering** — closing gaps where problems are too technical for PMs and too contextual for engineers.
+My operating loop:
 
-I focus on **vibe coding**:
-- shipping fast  
-- validating ideas through working systems  
-- refining them based on real operational usage, not theory  
-
-This GitHub reflects **what I actually build and run in production**, not sample or tutorial code.
-
----
-
-### 🇰🇷 KR
-비즈니스와 엔지니어링의 경계에서 
-마케팅·CRM·커뮤니티를 연결한 성장 워크플로우를 구축·운영하며, 실제로 돌아가는 자동화 시스템을 설계하고 소유하는 시스템 중심 PM입니다.
-
-API, 스크립트, 경량 프론트엔드를 결합해  
-대시보드·알림·운영 지표로 이어지는 **신뢰 가능한 의사결정 시스템**을 만듭니다.
-
-저는 **바이브 코딩**에 집중합니다:
-- 빠르게 만들고  
-- 실제 사용으로 검증하며  
-- 운영하면서 개선합니다  
-
-이 GitHub는 예제 코드가 아니라  
-**현재 직접 만들고, 돌리고, 책임지는 시스템**을 기록합니다.
+> Find repetitive operational pain -> design a small system -> ship fast -> validate with real usage -> improve based on signals.
 
 ---
 
-## 🧠 Core Capabilities
+## Featured Projects
 
-### EN
-- Operational automation & monitoring  
-- API integration & script-based workflows (JavaScript / GAS)  
-- Webhook-driven systems  
-- Lightweight data pipelines (Sheets-based)  
-- Data validation & signal design  
-- Rapid MVP → production iteration  
-- Shipping-first, operation-aware mindset  
+### Web QA Automation Tool
 
-### KR
-- 운영 자동화 및 모니터링 시스템 설계  
-- API 연동 및 스크립트 기반 워크플로우 (JavaScript / GAS)  
-- Webhook 중심 시스템 구성  
-- 경량 데이터 파이프라인 (Sheets 기반)  
-- 데이터 검증 및 운영 신호 설계  
-- MVP를 실제 운영 시스템으로 전환  
-- 구현보다 운영을 먼저 보는 개발 관점  
+A reusable Playwright + TypeScript QA toolkit for automated website health checks.
 
----
+It supports:
 
-## 🔍 What You’ll Find in My Repos
+- Smoke and regression checks
+- Crawler-based page discovery
+- Console error detection
+- Internal network failure monitoring
+- Broken link scanning
+- Safe button interaction testing
+- Accessibility checks
+- Playwright reports, screenshots, traces, and JSON outputs
 
-### EN
-- Automation systems that run unattended  
-- API-driven monitoring and data collection  
-- MVPs built to validate real business problems  
-- Small, reliable systems designed to reduce operational risk  
+**Why it matters:**  
+This turns manual product QA into a repeatable operational quality gate that can detect issues before they become user-facing problems.
 
-### KR
-- 사람 개입 없이 돌아가는 자동화 시스템  
-- API 기반 모니터링 및 데이터 수집  
-- 실제 비즈니스 문제 검증용 MVP  
-- 운영 리스크를 줄이기 위한 소형 시스템  
+Repository: `leagueoftraders-qa-automation`
 
 ---
 
-## 🛠 Tech I Use
+### Intercom Daily Digest Routine
 
-- JavaScript / TypeScript  
-- Google Apps Script  
-- React + Vite + Tailwind CSS  
-- REST APIs / Webhooks  
-- Google Cloud Platform  
-- Slack Bots & triggers  
-- AI tools (prompt-based usage)  
+AI-assisted customer support operations routine that summarizes open Intercom conversations and posts a daily digest to Slack.
+
+Built with:
+
+- Claude Code Routines
+- Intercom MCP
+- Slack MCP
+- Scheduled workflow execution
+
+**Why it matters:**  
+This reduces CS monitoring overhead and makes unresolved customer issues visible inside the team's daily workflow.
+
+Repository: `intercom-digest-routine`
 
 ---
 
-## 📌 One-Line Summary
+### Crypto Market Briefing Bot
 
-> **EN**  
-> *I build small operational systems that prevent business problems from becoming engineering problems.*
+Automated Telegram bot that generates crypto market briefings from multiple market data sources.
 
-> **KR**  
-> *비즈니스 문제를 엔지니어링 문제로 키우지 않기 위해 시스템을 만듭니다.*
+Built with:
+
+- Python
+- Telegram Bot API
+- Claude API
+- GCP Cloud Scheduler
+- Docker
+
+The bot collects market signals such as ETF flows, open interest, funding rates, Coinbase premium, and sentiment indices, then turns them into readable AI-generated briefings.
+
+**Why it matters:**  
+This combines market data collection, AI interpretation, and automated distribution into a repeatable content operations workflow.
+
+Repository: `briefing-bot`
+
+---
+
+### Tap-to-Sync MVP
+
+A web MVP for short-form video subtitle synchronization.
+
+Built with:
+
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+
+The tool lets editors tap along with audio playback to generate timestamps, then exports synchronized subtitles in SRT, LRC, and CapCut CSV formats.
+
+**Why it matters:**  
+This shows how a manual creative workflow can be converted into a focused productivity tool with simple UX and lightweight automation.
+
+Repository: `taptosync`
+
+---
+
+## Core Capabilities
+
+### AI & Automation
+
+- Claude / ChatGPT assisted workflow design
+- MCP-based tool connection
+- AI-generated operational summaries
+- Prompt-based process automation
+- Human-in-the-loop automation design
+
+### Product & Growth Ops
+
+- Campaign operations
+- User behavior analysis
+- CRM and CS workflow design
+- Funnel monitoring
+- Growth experiment operations
+- Community and marketing automation
+
+### Technical Systems
+
+- JavaScript / TypeScript
+- Python
+- Google Apps Script
+- REST APIs / Webhooks
+- Slack / Telegram / Intercom integrations
+- Playwright automation
+- Docker-based deployment
+- GCP Cloud Scheduler
+- GitHub Actions-ready workflows
+
+### Data & Signals
+
+- Amplitude dashboards
+- Operational metrics
+- QA signal design
+- Market data monitoring
+- Lightweight reporting pipelines
+
+---
+
+## How I Think
+
+A useful automation system is not just code.
+
+It needs to understand:
+
+- who uses it
+- what decision it supports
+- what failure looks like
+- how humans review the result
+- when automation should stop and ask for judgment
+
+That is why I focus on **operation-aware development**: building small systems that work inside real team workflows.
+
+---
+
+## Current Focus
+
+I am currently deepening my work around:
+
+- AI workflow systems
+- Product/Growth Ops automation
+- Crypto trading data products
+- Trader performance metrics
+- Portfolio and holder segmentation
+- Operational intelligence for Web3 products
+
+My long-term direction is to connect:
+
+> user behavior -> product insight -> operational workflow -> automated system
+
+---
+
+## One-Line Summary
+
+> I build AI-powered operational systems that help product and growth teams move faster with fewer manual bottlenecks.
