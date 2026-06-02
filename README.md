@@ -23,7 +23,9 @@
 | **Claude Code Judge** | QA 회귀 탐지 파이프라인에서 의심 케이스만 Claude 세션으로 보내 최종 판정 | 자동화의 고질적 문제인 **노이즈/오탐을 사람 대신 걸러냄** |
 | **Claude Code Routines** | 매일 정해진 시간에 Intercom 대화를 요약해 Slack에 발행 | **서버리스 인프라 없이** AI 운영 루틴 상시 가동 (AWS Lambda → Routine 이관) |
 | **Claude API** | 크립토 시장 데이터를 전문가 수준 브리핑으로 변환 | 데이터 수집 + AI 해석 + 자동 배포를 하나의 **콘텐츠 운영 파이프라인**으로 |
-| **MCP (Model Context Protocol)** | Intercom · Slack 등 외부 도구를 AI에 직접 연결 | 코드 글루 없이 **AI가 실제 업무 시스템을 조작** |
+| **Notion MCP** | 기존에 문서화해 둔 Notion DB를 읽어 공지·안내 멘트를 즉시 초안 생성 | 흩어진 문서를 **재작성 없이 커뮤니케이션 자산으로** 재활용 |
+| **Intercom + Slack MCP** | 오픈된 문의를 매일 자동 정리해 Slack에서 "무엇이 남았는지" 관리, 답변 초안까지 즉시 생성 | CS/유저 관리·운영을 **반자동화** — 사람은 검토·확정만 |
+| **MCP (Model Context Protocol)** | Intercom · Slack · Notion 등 외부 도구를 AI에 직접 연결 | 코드 글루 없이 **AI가 실제 업무 시스템을 조작** |
 
 **핵심 차별점:** 저는 AI를 "답변기"가 아니라 **사람의 판단이 필요한 지점을 아는 운영 시스템의 일부**로 설계합니다.
 언제 자동화하고, 언제 멈춰 사람에게 물어야 하는지를 시스템 안에 녹입니다.
@@ -84,19 +86,38 @@
 
 ---
 
+## ⚙️ 운영 자동화 & 데이터 도구
+
+레포지토리로 따로 공개하진 않았지만, 실제 운영 현장에서 매일 쓰이는 반자동화 시스템들입니다.
+
+### MCP 기반 유저 관리 · 운영 반자동화
+- **Notion MCP × Claude** — 기존에 문서화해 둔 Notion DB를 읽어, 공지·안내 멘트를 손쉽게 초안 생성. 매번 처음부터 쓰지 않고 **축적된 문서를 그대로 커뮤니케이션 자산으로** 활용.
+- **Intercom MCP × Slack** — 현재 오픈된 문의를 읽어 **매일 자동으로 Slack에서 "무엇이 남았는지" 관리**하고, 답변 초안을 빠르게 생성해 담당자가 검토 후 직접 입력. CS·유저 관리·운영 업무를 **Human-in-the-loop 반자동화**로 전환.
+- **왜 의미 있나:** 운영의 핵심 통증인 *"놓친 문의"* 와 *"매번 다시 쓰는 멘트"* 를 동시에 제거. AI가 1차 처리, 사람이 판단·확정.
+
+### 레어 데이터 관리 (SQLite)
+- 레어(rare) 데이터를 **SQLite로 가볍게 생성·관리** — 무거운 DB 인프라 없이 로컬에서 즉시 조회·갱신 가능한 데이터 레이어 구축.
+- **왜 의미 있나:** 작은 데이터셋에 과한 인프라를 붙이지 않는 **적정 기술 선택** 감각.
+
+### 거래소/DEX 자산 집계 자동화 (Google Apps Script)
+- **Google Apps Script**로 거래소 API와 DEX RPC 서버에 접근해 자산 잔고를 불러오고, **Google 스프레드시트에 자동으로 정리**.
+- **왜 의미 있나:** 별도 서버 없이 스프레드시트만으로 동작하는 **무인프라 자산 대시보드** — CEX·온체인 데이터를 한 시트에서 통합 관리.
+
+---
+
 ## 🧰 핵심 역량
 
 **AI & 자동화**
-`Claude Code (Judge/Routines)` · `Claude API` · `OpenAI API` · `MCP` · `프롬프트 기반 프로세스 자동화` · `Human-in-the-loop 설계`
+`Claude Code (Judge/Routines)` · `Claude API` · `OpenAI API` · `MCP (Notion·Intercom·Slack)` · `프롬프트 기반 프로세스 자동화` · `Human-in-the-loop 설계`
 
 **프로덕트 & 그로스 옵스**
-`캠페인 운영` · `유저 행동 분석` · `CRM/CS 워크플로우` · `퍼널 모니터링` · `그로스 실험 운영` · `커뮤니티 자동화`
+`캠페인 운영` · `유저 행동 분석` · `CRM/CS 워크플로우` · `CS 문의 반자동 응대` · `퍼널 모니터링` · `그로스 실험 운영` · `커뮤니티 자동화`
 
 **기술 스택**
-`TypeScript` · `Python` · `React / Next.js` · `Node.js` · `PostgreSQL / Prisma` · `Playwright` · `Docker` · `GCP` · `REST / Webhook` · `Slack / Telegram / Intercom 연동`
+`TypeScript` · `Python` · `React / Next.js` · `Node.js` · `PostgreSQL / Prisma` · `SQLite` · `Google Apps Script` · `Playwright` · `Docker` · `GCP` · `REST / Webhook` · `Slack / Telegram / Intercom / Notion 연동`
 
 **데이터 & 신호**
-`Amplitude` · `운영 메트릭` · `QA 신호 설계` · `시장 데이터 모니터링` · `리포팅 파이프라인`
+`Amplitude` · `운영 메트릭` · `QA 신호 설계` · `시장 데이터 모니터링` · `거래소 API / DEX RPC 자산 집계` · `스프레드시트 자동화` · `리포팅 파이프라인`
 
 ---
 
@@ -145,7 +166,9 @@ Not "I tried an AI" — I use **Claude as the decision engine in production work
 | **Claude Code Judge** | QA regression pipeline routes only suspicious cases to a Claude session for the final verdict | Solves automation's classic problem — **filtering noise/false positives without a human** |
 | **Claude Code Routines** | Summarizes Intercom conversations and posts to Slack on a daily schedule | Always-on AI ops **with zero serverless infra** (migrated off AWS Lambda) |
 | **Claude API** | Turns crypto market data into expert-level briefings | Data ingest + AI interpretation + auto-delivery as **one content pipeline** |
-| **MCP (Model Context Protocol)** | Connects Intercom, Slack, etc. directly to the AI | The **AI operates real business systems** without glue code |
+| **Notion MCP** | Reads my existing documented Notion DBs to instantly draft announcements & user-facing copy | Reuses scattered docs as **comms assets — no rewriting** |
+| **Intercom + Slack MCP** | Auto-triages open tickets into Slack daily ("what's still open?") and drafts replies on the spot | **Semi-automates** CS / user ops — humans just review & confirm |
+| **MCP (Model Context Protocol)** | Connects Intercom, Slack, Notion, etc. directly to the AI | The **AI operates real business systems** without glue code |
 
 **The differentiator:** I design AI not as an "answer box" but as **part of an operational system that knows where human judgment is needed** — when to automate, and when to stop and ask.
 
@@ -205,15 +228,34 @@ Not "I tried an AI" — I use **Claude as the decision engine in production work
 
 ---
 
+## ⚙️ Operational Automation & Data Tools
+
+Not published as standalone repos, but real semi-automated systems used in day-to-day operations.
+
+### MCP-based User Management & Ops Semi-automation
+- **Notion MCP × Claude** — reads my already-documented Notion DBs to draft announcements and user-facing copy effortlessly. Instead of writing from scratch, **accumulated docs become reusable comms assets.**
+- **Intercom MCP × Slack** — reads currently open tickets and **manages "what's still open?" in Slack automatically every day**, drafting replies fast so an operator reviews and sends. Turns CS / user management / ops into **human-in-the-loop semi-automation.**
+- **Why it matters:** Kills two core ops pains at once — *missed tickets* and *re-writing the same copy*. AI does the first pass; humans judge and confirm.
+
+### Rare-Data Management (SQLite)
+- Spins up and manages rare datasets **lightly with SQLite** — an instantly queryable local data layer with no heavy DB infra.
+- **Why it matters:** A sense for **right-sized tech** — not bolting overkill infrastructure onto small datasets.
+
+### Exchange/DEX Asset Aggregation (Google Apps Script)
+- Uses **Google Apps Script** to hit exchange APIs and DEX RPC endpoints, pull asset balances, and **auto-organize them into Google Sheets.**
+- **Why it matters:** An **infra-free asset dashboard** running entirely in a spreadsheet — CEX + on-chain data unified in one sheet.
+
+---
+
 ## 🧰 Core Capabilities
 
-**AI & Automation** — `Claude Code (Judge/Routines)` · `Claude API` · `OpenAI API` · `MCP` · `prompt-based process automation` · `human-in-the-loop design`
+**AI & Automation** — `Claude Code (Judge/Routines)` · `Claude API` · `OpenAI API` · `MCP (Notion·Intercom·Slack)` · `prompt-based process automation` · `human-in-the-loop design`
 
-**Product & Growth Ops** — `campaign operations` · `user behavior analysis` · `CRM/CS workflows` · `funnel monitoring` · `growth experiments` · `community automation`
+**Product & Growth Ops** — `campaign operations` · `user behavior analysis` · `CRM/CS workflows` · `semi-automated CS responses` · `funnel monitoring` · `growth experiments` · `community automation`
 
-**Technical** — `TypeScript` · `Python` · `React / Next.js` · `Node.js` · `PostgreSQL / Prisma` · `Playwright` · `Docker` · `GCP` · `REST / Webhooks` · `Slack / Telegram / Intercom integrations`
+**Technical** — `TypeScript` · `Python` · `React / Next.js` · `Node.js` · `PostgreSQL / Prisma` · `SQLite` · `Google Apps Script` · `Playwright` · `Docker` · `GCP` · `REST / Webhooks` · `Slack / Telegram / Intercom / Notion integrations`
 
-**Data & Signals** — `Amplitude` · `operational metrics` · `QA signal design` · `market data monitoring` · `reporting pipelines`
+**Data & Signals** — `Amplitude` · `operational metrics` · `QA signal design` · `market data monitoring` · `exchange API / DEX RPC asset aggregation` · `spreadsheet automation` · `reporting pipelines`
 
 ---
 
