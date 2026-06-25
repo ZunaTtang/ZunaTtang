@@ -22,6 +22,7 @@
 |---|---|---|
 | **Claude Code Judge** | QA 회귀 탐지 파이프라인에서 의심 케이스만 Claude 세션으로 보내 최종 판정 | 자동화의 고질적 문제인 **노이즈/오탐을 사람 대신 걸러냄** |
 | **Claude Code Routines** | 매일 정해진 시간에 Intercom 대화를 요약해 Slack에 발행 | **서버리스 인프라 없이** AI 운영 루틴 상시 가동 (AWS Lambda → Routine 이관) |
+| **AI 비용 엔지니어링** | 운명재판소 게임 — 캐시·프리셋·룰베이스 폴백 **다계층 라우팅**으로 AI 호출 단가를 0원에 근접 | *"판당 흑자"*가 유지되는 **AI 경제 구조**를 직접 설계 (provider 추상화로 모델 스왑) |
 | **Claude API** | 크립토 시장 데이터를 전문가 수준 브리핑으로 변환 | 데이터 수집 + AI 해석 + 자동 배포를 하나의 **콘텐츠 운영 파이프라인**으로 |
 | **Notion MCP** | 기존에 문서화해 둔 Notion DB를 읽어 공지·안내 멘트를 즉시 초안 생성 | 흩어진 문서를 **재작성 없이 커뮤니케이션 자산으로** 재활용 |
 | **Intercom + Slack MCP** | 오픈된 문의를 매일 자동 정리해 Slack에서 "무엇이 남았는지" 관리, 답변 초안까지 즉시 생성 | CS/유저 관리·운영을 **반자동화** — 사람은 검토·확정만 |
@@ -61,14 +62,15 @@
 
 🔗 [`intercom-digest-routine`](https://github.com/ZunaTtang/intercom-digest-routine)
 
-### 4. Crypto Market Briefing Bot — AI 시장 브리핑 자동화
-> 여러 시장 데이터 소스를 모아 Claude API로 전문가 수준 브리핑을 만들고 Telegram으로 매일 발송하는 봇.
+### 4. 운명재판소 (Court of Destiny) — AI 판관 바이럴 모바일 게임
+> 황당한 위기 상황 + 물품 2개가 주어지면 플레이어가 생존 계획을 쓰고, **AI 판관이 드라마틱하게 생사를 판정**하는 일회성 바이럴 모바일 게임. Google Play 비공개 테스트 가동 중.
 
-- **스택:** Python · Telegram Bot API · Claude API · GCP Cloud Scheduler · Docker
-- **수집 신호:** ETF 플로우 · 미결제약정(OI) · 펀딩비 · 코인베이스 프리미엄 · 공포탐욕지수 · 알트시즌 지수
-- **왜 의미 있나:** 재시도·에러 핸들링이 포함된 견고한 스크래퍼 + AI 해석 + 자동 배포의 **end-to-end 콘텐츠 파이프라인**.
+- **스택:** Expo (React Native) · Supabase (Edge Functions · Postgres · 익명 Auth) · Gemini flash-lite *(provider 추상화 — Anthropic Haiku로 스왑 가능)* · AdMob · RevenueCat
+- **🔥 AI 비용 엔지니어링 (핵심):** *"판당 흑자"*(광고수익 > AI 원가)를 위해 AI 호출 단가를 **0원에 근접하게 붕괴시키는 다계층 라우팅** 설계 — ① 판독불가 입력 차단 → ② `verdict_cache` 히트 → ③ 라이브 AI 호출(12초 타임아웃) → ④ 장애 시 **답안 룰베이스로 결과 정합한 프리셋 0원 강등** → ⑤ 최후 앱내 룰베이스. **어디서 막혀도 게임은 멈추지 않음.**
+- **무인 운영 설계:** 콘텐츠=DB / 로직=OTA / 네이티브=고정 **3단 분리**로 스토어 재심사 최소화 · 서버 권위 토큰 캡으로 **바이럴 적자 방어** · 사건 683건 운영 중
+- **왜 의미 있나:** AI를 *"쓰는"* 단계를 넘어 **AI 단가를 제품 경제성에 맞춰 설계**. 앱·백엔드·DB·토큰경제·광고·결제·스토어 배포까지 **혼자 end-to-end** 완성.
 
-🔗 [`briefing-bot`](https://github.com/ZunaTtang/briefing-bot)
+🔗 `Court-of-Destiny` *(비공개 / 데모 요청 가능)*
 
 ### 5. Tap-to-Sync — 숏폼 자막 싱크 자동화 MVP
 > 숏폼 편집자가 **Tap 기반 UX + 자동 보정 엔진**으로 자막 싱크 시간을 크게 줄이는 Web MVP.
@@ -79,10 +81,16 @@
 
 🔗 [`taptosync`](https://github.com/ZunaTtang/taptosync)
 
-### 6. Web Screenshot Autobot — 로그인 지원 웹 크롤러
-> Python + Playwright 기반 CLI 크롤러. 내부 링크를 BFS로 탐색하며 전체화면 스크린샷을 자동 저장(로그인 세션 지원).
+### 6. Live Archiver — 어려운 CLI를 내 입맛대로 만든 yt-dlp GUI
+> **링크만 붙여넣고 "시작"** 누르면 라이브를 처음부터 아카이빙하는 브라우저 GUI. 강력하지만 쓰기 어려운 `yt-dlp` CLI를, 내가 실제로 쓰기 편한 도구로 직접 재설계한 결과물.
 
-🔗 [`auto-screenshot-bot`](https://github.com/ZunaTtang/auto-screenshot-bot)
+- **스택:** Python · JavaScript · Whisper(faster-whisper) · yt-dlp / ffmpeg 래핑
+- **핵심:** `yt-dlp`/`ffmpeg`를 **OS에 맞게 자동 설치**(제로 셋업) · YouTube `--live-from-start`로 라이브 처음부터 수신 · 트위치·치지직·X 등 **1700+ 사이트** · 정지/복구 조각 처리 · **faster-whisper 전사**(GPU→CPU 폴백·이어하기 → SRT/TXT)
+- **왜 의미 있나:** *"내가 쓰기 어려운 CLI를 내 워크플로우에 맞게 GUI로 바꾼다"* — 도구의 사용성을 직접 설계하는 **developer-experience / UX 감각**의 증거.
+
+🔗 [`ytdlp-live-gui`](https://github.com/ZunaTtang/ytdlp-live-gui)
+
+> **그 외:** Crypto Briefing Bot — 시장 데이터 수집 → Claude API 해석 → Telegram 자동 발송 파이프라인 ([`briefing-bot`](https://github.com/ZunaTtang/briefing-bot)) · Web Screenshot Autobot — 로그인 지원 BFS 크롤러로 전체화면 스크린샷 자동 저장 ([`auto-screenshot-bot`](https://github.com/ZunaTtang/auto-screenshot-bot))
 
 ---
 
@@ -108,13 +116,13 @@
 ## 🧰 핵심 역량
 
 **AI & 자동화**
-`Claude Code (Judge/Routines)` · `Claude API` · `OpenAI API` · `MCP (Notion·Intercom·Slack)` · `프롬프트 기반 프로세스 자동화` · `Human-in-the-loop 설계`
+`Claude Code (Judge/Routines)` · `Claude API` · `Gemini` · `OpenAI API` · `Whisper 전사` · `MCP (Notion·Intercom·Slack)` · `AI 비용 최적화·다계층 라우팅` · `프롬프트 기반 프로세스 자동화` · `Human-in-the-loop 설계`
 
 **프로덕트 & 그로스 옵스**
 `캠페인 운영` · `유저 행동 분석` · `CRM/CS 워크플로우` · `CS 문의 반자동 응대` · `퍼널 모니터링` · `그로스 실험 운영` · `커뮤니티 자동화`
 
 **기술 스택**
-`TypeScript` · `Python` · `React / Next.js` · `Node.js` · `PostgreSQL / Prisma` · `SQLite` · `Google Apps Script` · `Playwright` · `Docker` · `GCP` · `REST / Webhook` · `Slack / Telegram / Intercom / Notion 연동`
+`TypeScript` · `Python` · `React / Next.js` · `React Native / Expo` · `Node.js` · `Supabase (Edge Functions·Postgres)` · `PostgreSQL / Prisma` · `SQLite` · `Google Apps Script` · `Playwright` · `Docker` · `GCP` · `REST / Webhook` · `Slack / Telegram / Intercom / Notion 연동`
 
 **데이터 & 신호**
 `Amplitude` · `운영 메트릭` · `QA 신호 설계` · `시장 데이터 모니터링` · `거래소 API / DEX RPC 자산 집계` · `스프레드시트 자동화` · `리포팅 파이프라인`
@@ -165,6 +173,7 @@ Not "I tried an AI" — I use **Claude as the decision engine in production work
 |---|---|---|
 | **Claude Code Judge** | QA regression pipeline routes only suspicious cases to a Claude session for the final verdict | Solves automation's classic problem — **filtering noise/false positives without a human** |
 | **Claude Code Routines** | Summarizes Intercom conversations and posts to Slack on a daily schedule | Always-on AI ops **with zero serverless infra** (migrated off AWS Lambda) |
+| **AI cost engineering** | Court of Destiny — **multi-tier routing** (cache · presets · rule-based fallback) collapses AI call cost toward zero | Designed an **AI economy** that stays *"profitable per play"* (provider-abstracted model swap) |
 | **Claude API** | Turns crypto market data into expert-level briefings | Data ingest + AI interpretation + auto-delivery as **one content pipeline** |
 | **Notion MCP** | Reads my existing documented Notion DBs to instantly draft announcements & user-facing copy | Reuses scattered docs as **comms assets — no rewriting** |
 | **Intercom + Slack MCP** | Auto-triages open tickets into Slack daily ("what's still open?") and drafts replies on the spot | **Semi-automates** CS / user ops — humans just review & confirm |
@@ -203,14 +212,15 @@ Not "I tried an AI" — I use **Claude as the decision engine in production work
 
 🔗 [`intercom-digest-routine`](https://github.com/ZunaTtang/intercom-digest-routine)
 
-### 4. Crypto Market Briefing Bot — AI Market Briefings
-> Collects multiple market data sources, generates expert-level briefings via the Claude API, and delivers them daily over Telegram.
+### 4. Court of Destiny — AI-Judge Viral Mobile Game
+> Given an absurd crisis + two items, the player writes a survival plan and an **AI judge dramatically rules life or death.** A one-shot viral mobile game, currently in Google Play closed testing.
 
-- **Stack:** Python · Telegram Bot API · Claude API · GCP Cloud Scheduler · Docker
-- **Signals:** ETF flows · open interest · funding rates · Coinbase premium · Fear & Greed · Altcoin Season index
-- **Why it matters:** A robust scraper (retries + error handling) + AI interpretation + auto-distribution as an **end-to-end content pipeline.**
+- **Stack:** Expo (React Native) · Supabase (Edge Functions · Postgres · anon Auth) · Gemini flash-lite *(provider-abstracted — swappable to Anthropic Haiku)* · AdMob · RevenueCat
+- **🔥 AI cost engineering (the core):** To stay *"profitable per play"* (ad revenue > AI cost), I designed **multi-tier routing that collapses AI call cost toward zero** — ① block unreadable input → ② `verdict_cache` hit → ③ live AI call (12s timeout) → ④ on failure, **rule-based evaluation downgrades to an answer-consistent preset at $0** → ⑤ last-resort in-app rules. **The game never stalls, wherever it breaks.**
+- **Zero-ops design:** content=DB / logic=OTA / native=frozen **three-way split** minimizes store re-reviews · server-authoritative token caps **defend against a viral-driven loss** · 683 live scenarios
+- **Why it matters:** Beyond *"using"* AI — I **engineer AI unit cost to fit product economics.** Built the app, backend, DB, token economy, ads, payments, and store release **solo, end-to-end.**
 
-🔗 [`briefing-bot`](https://github.com/ZunaTtang/briefing-bot)
+🔗 `Court-of-Destiny` *(private — demo available on request)*
 
 ### 5. Tap-to-Sync — Short-form Subtitle Sync MVP
 > A web MVP that slashes subtitle-syncing time for short-form editors via a **tap-based UX + auto-correction engine.**
@@ -221,10 +231,16 @@ Not "I tried an AI" — I use **Claude as the decision engine in production work
 
 🔗 [`taptosync`](https://github.com/ZunaTtang/taptosync)
 
-### 6. Web Screenshot Autobot — Login-aware Crawler
-> A Python + Playwright CLI crawler that BFS-traverses internal links and auto-captures full-page screenshots (supports authenticated sessions).
+### 6. Live Archiver — a yt-dlp GUI rebuilt to fit my own workflow
+> **Paste a link, hit "Start,"** and it archives a livestream from the very beginning — a browser GUI for the powerful-but-painful `yt-dlp` CLI, redesigned into a tool I actually enjoy using.
 
-🔗 [`auto-screenshot-bot`](https://github.com/ZunaTtang/auto-screenshot-bot)
+- **Stack:** Python · JavaScript · Whisper (faster-whisper) · yt-dlp / ffmpeg wrapping
+- **Core:** **auto-installs** `yt-dlp`/`ffmpeg` per OS (zero setup) · YouTube `--live-from-start` capture · **1700+ sites** (Twitch, Chzzk, X, …) · stop/resume segment recovery · **faster-whisper transcription** (GPU→CPU fallback · resumable → SRT/TXT)
+- **Why it matters:** *"I take a CLI I find hard to use and reshape it into a GUI that fits my workflow"* — evidence of **developer-experience / UX instinct**, designing usability firsthand.
+
+🔗 [`ytdlp-live-gui`](https://github.com/ZunaTtang/ytdlp-live-gui)
+
+> **Also:** Crypto Briefing Bot — collects market data → interprets via the Claude API → auto-sends to Telegram ([`briefing-bot`](https://github.com/ZunaTtang/briefing-bot)) · Web Screenshot Autobot — login-aware BFS crawler that auto-captures full-page screenshots ([`auto-screenshot-bot`](https://github.com/ZunaTtang/auto-screenshot-bot))
 
 ---
 
@@ -249,11 +265,11 @@ Not published as standalone repos, but real semi-automated systems used in day-t
 
 ## 🧰 Core Capabilities
 
-**AI & Automation** — `Claude Code (Judge/Routines)` · `Claude API` · `OpenAI API` · `MCP (Notion·Intercom·Slack)` · `prompt-based process automation` · `human-in-the-loop design`
+**AI & Automation** — `Claude Code (Judge/Routines)` · `Claude API` · `Gemini` · `OpenAI API` · `Whisper transcription` · `MCP (Notion·Intercom·Slack)` · `AI cost optimization / multi-tier routing` · `prompt-based process automation` · `human-in-the-loop design`
 
 **Product & Growth Ops** — `campaign operations` · `user behavior analysis` · `CRM/CS workflows` · `semi-automated CS responses` · `funnel monitoring` · `growth experiments` · `community automation`
 
-**Technical** — `TypeScript` · `Python` · `React / Next.js` · `Node.js` · `PostgreSQL / Prisma` · `SQLite` · `Google Apps Script` · `Playwright` · `Docker` · `GCP` · `REST / Webhooks` · `Slack / Telegram / Intercom / Notion integrations`
+**Technical** — `TypeScript` · `Python` · `React / Next.js` · `React Native / Expo` · `Node.js` · `Supabase (Edge Functions·Postgres)` · `PostgreSQL / Prisma` · `SQLite` · `Google Apps Script` · `Playwright` · `Docker` · `GCP` · `REST / Webhooks` · `Slack / Telegram / Intercom / Notion integrations`
 
 **Data & Signals** — `Amplitude` · `operational metrics` · `QA signal design` · `market data monitoring` · `exchange API / DEX RPC asset aggregation` · `spreadsheet automation` · `reporting pipelines`
 
